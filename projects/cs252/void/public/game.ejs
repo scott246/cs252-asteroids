@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  </head>
+  <body>
+  
+
+<!--   	<div class="wrapper">
+
+      <div id="gameName"> VOID </div>
+
+      <div id="instructions">
+        <div>
+          move with <span class="key">wasd</span>
+        </div>
+        <div>
+          shoot with <span class="key">arrow keys</span>
+        </div>
+        <div>
+          pause the game with <span class="key">esc</span>
+        </div>
+        <div>
+          toggle hud with <span class="key">q</span>
+        <div>
+    </div> -->
+
+    <br>
+
+  	<div id="hud">
+  		<div id="timeAliveTag"></div>
+  		<div id="timeAlive"></div>
+    	<div id="livesTag"></div>
+    	<div id="lives"></div>
+    	<div id="powerupTag"></div>
+    	<div id="powerup"></div>
+    	<div id="info"></div>
+    	<div id="wave"></div>
+    	<div id="waveTag"></div>
+    	<div id="score"></div>
+    	<div id="scoreTag"></div>
+    </div>
+
+    <div id="game-over-overlay">
+    </div>
+
+    <div id="game-over">
+      <h1>GAME OVER</h1>
+      <button onclick="submitScore(<%= user[0].id %>)"> Submit Score </button>
+      <button id="play-again">Play Again</button>
+    </div>
+
+    <div id="pause-overlay">
+    </div>
+
+    <div id="pause">
+    	<h1>GAME PAUSED</h1>
+    	<button id="unpause">Unpause</button>
+    </div>
+    <br>
+
+    <script
+
+    <script type="text/javascript" src="resources.js"></script>
+    <script type="text/javascript" src="input.js"></script>
+    <script type="text/javascript" src="sprite.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Void Game</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <!--uncomment below when css works-->
+    <!--<link rel="stylesheet" type="text/css" href="stylesheet/profile.css">-->
+    <!--<style>
+    body        { padding-top:40px; word-wrap:break-word; }
+</style>-->
+
+    <!--css for styling on this page.  also in profile.css, but
+    that's not on the server so I put it here for now-->
+    <style media="screen" type="text/css">
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color: #111;
+    }
+
+    li.left {
+     border-right: 1px solid #bbb;
+ }
+
+ li.right {
+    border-left: 1px solid #bbb;
+}
+
+a.active {
+ text-decoration: underline !important;
+}
+
+#page1 {
+    /*background-color: #111;*/
+    width: 100%;
+    height: 100vh;
+    display: table;
+}
+
+#page2 {
+    /*background-color: #111;*/
+    width: 100%;
+    height: 100vh;
+    display: table;
+}
+
+#page3 {
+    /*background-color: #111;*/
+    width: 100%;
+    height: 100vh;
+    display: table;
+}
+
+#page4 {
+    width: 100%;
+    height: 100vh;
+    display: table;
+}
+
+
+#page1text {
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#welcome {
+    font-size: 36px;
+}
+
+#page2text {
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.lead {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+
+#cont {
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+}
+
+
+#controls, #misc {
+    width: 100%
+}
+
+#summary {
+    text-align: center;
+    padding-right: 120px;
+    padding-left: 120px;
+}
+
+h4, #c {
+    text-align: center;
+}
+
+#l {
+    text-align: left;
+}
+
+#r {
+    text-align: right;
+}
+
+.titles {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#page3text {
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#hss {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.name {
+    text-align: left;
+}
+
+#page4text {
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#users_score {
+    color: yellow;
+}
+
+body {
+    /*padding-top: 27px;*/
+    overflow-y: hidden; 
+
+    background: linear-gradient(274deg, #9f0df8, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 16s ease infinite;
+    -moz-animation: AnimationName 16s ease infinite;
+    animation: AnimationName 16s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 51%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 51%}
+        100%{background-position:0% 50%}
+    }
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 51%}
+    100%{background-position:0% 50%}
+}
+</style>
+</head>
+
+<body>
+    
+
+
+    <div id="navbar">
+    <ul>
+      <li class="left"><a href="#intro" class="inactive">Home</a></li>
+      <li class="left"><a href="#h2p" class="inactive">How to Play</a></li>
+      <li class="left"><a href="#highscore" class="inactive">High Scores</a></li>
+      <li class="left"><a href="#about" class="inactive">About Us</a></li>
+
+      <li class="right"><a href="/game">Play Game</a></li>
+      <li class="right"><a href="/logout">Logout</a></li>
+  </ul>
+</div>
+
+
+  <div id="page1">
+      <a id="intro" class="smooth"></a>
+      <div id="page1text">
+        <p>Hello, <%= user[0].name %></p>
+        <p id="welcome">Welcome to Void</p>
+        <!--<p>Void is an aseroid shooter developed for CS252</p>
+        <p>Please click an option above to learn more</p>-->
+    </div> 
+</div>
+
+<div id="page2">
+    <a id="h2p" class="smooth"></a>
+    
+    <div id="page2text">
+      <p class="lead">How To Play</p>
+      <div id="summary">
+          <p>Void is an asteroid shooting game developed for cs252.  The object of void is to fly around the screen and shoot asteroids as they drift by.  If an asteroid hits your ship you will lose a life.  After all 3 lives are lost, the game is finished.  Powerups can be collected by flying your ship over a yellow powerup icon.</p>
+          <br>
+      </div>
+
+      <table id="cont">
+          <tr>
+            <td id ="l" class="titles">Movement</td>
+            <td id ="c" class="titles">Misc</td>
+            <td id ="r" class="titles">Shooting</td>
+        </tr>
+        <td class="left">W: Move ship up</td>
+        <td class="center">ESC: Pause</td>
+        <td class="right">Up Arrow: Fire up</td> 
+    </tr>
+    <tr>
+        <td class="left">A: Move ship left</td>
+        <td class="center">Q: Toggle HUD</td>
+        <td class="right">Left Arrow: Fire left</td> 
+    </tr>
+    <tr>
+        <td class="left">S: Move ship down</td>
+        <td class="center">Space: Use powerup</td>
+        <td class="right">Down Arrow: Fire down</td> 
+    </tr>
+    <tr>
+        <td class="left">D: Move ship right</td>
+        <td class="center"></td>
+        <td class="right">Right Arrow: Fire right</td> 
+    </tr>
+</table>
+      <!--<h4>Movement</h4>
+      <p class="left">W: Move ship up</p>
+      <p class="left">A: Move ship left</p>
+      <p class="left">S: Move ship down</p>
+      <p class="left">D: Move ship right</p>
+
+      <h4>Shooting</h4>
+      <p class="right">Up Arrow: Fire up</p>
+      <p class="right">Left Arrow: Fire left</p>
+      <p class="right">Down Arrow: Fire down</p>
+      <p class="right">Right Arrow: Fire right</p>
+
+      <div id="misc">
+          <h4>Misc</h4>
+          <p>Esc: Pause</p>
+          <p>Q: Toggle HUD</p>
+      </div>-->
+  </div>
+</div>
+
+<div id="page3">
+  <a id="highscore" class="smooth"></a>
+  <div id="page3text">
+    <p class="lead">High Scores<p>
+        <table id="hss">
+        <% for(var i = 0; i < 10; i++) { %>
+            <% if(i >= scores.length) {%>
+            <tr>
+                <td><%= i + 1 %>.</td>
+                <td></td>
+            </tr>
+            <% } %>
+
+            <% if(i < scores.length && scores[i].name == user[0].name) {%>
+            <span id="users_score">
+                <tr>
+                    <td id="users_score"><%= i + 1 %>.</td>
+                    <td id="users_score" class="name">
+                        <%=scores[i].name %> (<%=scores[i].highscore %>)
+                    </td>
+            </span><br>
+            <% } %>
+
+            <% if(i < scores.length && scores[i].name != user[0].name) {%>
+            <tr>
+                <td><%= i + 1 %>.</td>
+                <td class="name"> 
+                    <%=scores[i].name %> (<%=scores[i].highscore %>)<br>
+                </td>
+            </tr>
+            <% } %>
+        <% } %>
+        </table>
+    </div>
+</div>
+
+<div id="page4">
+    <div id="page4text">
+        <a id="about" class="smooth"></a>
+        <p class="lead">Jacob McKesson</p>
+        <p class="lead">Nathan Scott</p>
+        <p class="lead">Jacob Stucky</p>
+    </div>
+</div>    
+
+<!--<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/game" class="btn btn-default btn-sm">Game</a>
+
+    
+    <div class="row">
+
+        GOOGLE INFORMATION
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google</h3>
+
+                <p>
+                    <strong>Name</strong>: <%= user[0].name %><br>
+                    <strong>Email</strong>: <%= user[0].email %><br>
+                    <strong>Google Id</strong>: <%= user[0].id %>
+
+
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        HISCORE INFORMATION
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="text
+                -danger"><span class="fa fa-google-plus"></span> HISCORES</h3>
+
+                <% for(var i = 0; i < scores.length; i++) { %>
+                <p>
+                    <% if(scores[i].name == user[0].name) {%>
+                    <span style="background-color: #FFFF00">
+                        <strong><%= i + 1 %> -</strong>
+                        <strong> Name</strong>: <%= scores[i].name %> |
+                        <strong> Hiscore</strong>: <%= scores[i].highscore %></span><br>
+                        <% } else {%>
+                        <strong><%= i + 1 %> -</strong>
+                        <strong> Name</strong>: <%= scores[i].name %> |
+                        <strong> Hiscore</strong>: <%= scores[i].highscore %><br>
+                        <% } %>
+                    </p>
+                    <% } %>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>-->
+    
+
+
+    <script type="text/javascript">
+    $(function(){
+    $('#navbar a').click(function () {
+        $('#navbar a').removeClass('active');
+        $(this).addClass('active');
+     });
+ });
+    </script>
+</body>
+</html>

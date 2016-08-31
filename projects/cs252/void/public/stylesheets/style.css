@@ -1,0 +1,184 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #151515;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+#instructions {
+    float: right;
+    font-family: sans-serif;
+    color: #757575;
+}
+
+#gameName {
+	font-size: 4em;
+	padding-right: 15px;
+    float: left;
+    font-family: sans-serif;
+    color: #757575;
+}
+
+#score {
+	padding-right: 10px;
+    float: right;
+    color: white;
+    font-family: sans-serif;
+    font-size: 3em;
+    clear: right;
+}
+
+#lives {
+	padding-left: 10px;
+	float: left;
+	color: red;
+	font-family: sans-serif;
+	font-size: 2em;
+}
+
+#timeAlive {
+	padding-left: 10px;
+	padding-top: 4em;
+	float: left;
+	color: gray;
+	font-family: sans-serif;
+	font-size: 2em;
+}
+
+#powerup {
+	padding-left: 10px;
+	float: left;
+	color: yellow;
+	font-family: sans-serif;
+	font-size: 2em;
+}
+
+#info {
+	padding-left: 10px;
+	float: left;
+	clear: left;
+	color: yellow;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+
+#wave {
+	padding-right: 10px;
+	float: right;
+	color: blue;
+	font-family: sans-serif;
+	font-size: 3em;
+	clear:bottom;
+}
+
+#timeAliveTag {
+	padding-top: 4em;
+	padding-left: 10px;
+	float:left;
+	clear:left;
+	color:gray;
+	font-family: sans-serif;
+	font-size: 2em;
+}
+
+#livesTag, #powerupTag {
+	padding-left: 10px;
+	float:left;
+	clear:left;
+	color:gray;
+	font-family: sans-serif;
+	font-size: 2em;
+}
+
+#waveTag {
+	padding-right: 10px;
+	float:right;
+	color:gray;
+	font-family: sans-serif;
+	font-size: 3em;
+}
+
+#scoreTag {
+	padding-right: 10px;
+	float:right;
+	color:gray;
+	font-family: sans-serif;
+	font-size: 3em;
+}
+
+.key {
+    color: #aaffdd;
+}
+
+#game-over, #game-over-overlay, #pause-overlay, #pause {
+    margin: auto;
+    width: center;
+    height: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+
+#hud-overlay, #hud {
+	margin: 0 auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	display: inline-block;
+}
+
+#game-over-overlay {
+    background-color: #660000;
+    opacity: .5;
+}
+
+#pause-overlay {
+	background-color: #000066;
+	opacity: .5;
+}
+
+#hud-overlay {
+	background-color: black;
+	opacity: .25;
+}
+
+#game-over, #pause{
+    height: 200px;
+    text-align: center;
+    color: white;
+}
+
+#game-over h1, #pause h1{
+    font-size: 3em;
+    font-family: sans-serif;
+}
+
+#game-over button #pause button{
+    font-size: 2em;
+}
