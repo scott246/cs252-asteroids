@@ -16,27 +16,21 @@
     <br>
 
   	<div id="hud">
-  		<div id="timeAliveTag"></div>
-  		<div id="timeAlive"></div>
-    	<div id="livesTag"></div>
-    	<div id="lives"></div>
-    	<div id="powerupTag"></div>
-    	<div id="powerup"></div>
-    	<div id="info"></div>
-    	<div id="wave"></div>
-    	<div id="waveTag"></div>
-    	<div id="score"></div>
-    	<div id="scoreTag"></div>
+  		<div id="timeAliveTag"><div id="timeAlive"></div></div>
+    	<div id="livesTag"><div id="lives"></div></div>
+    	<div id="powerupTag"><div id="powerup"><div id="info"></div></div></div>
+    	<div id="waveTag"><div id="wave"></div></div>
+    	<div id="scoreTag"><div id="score"></div></div>
     </div>
 
-    <div id="game-over-overlay">
+<!--    <div id="game-over-overlay">
     </div>
 
     <div id="game-over">
       <h1>GAME OVER</h1>
       <button onclick="submitScore(<%= user[0].id %>)"> Submit Score </button>
       <button id="play-again">Play Again</button>
-    </div>
+    </div> -->
 
     <div id="pause-overlay">
     </div>
@@ -46,9 +40,7 @@
     	<button id="unpause">Unpause</button>
     </div>
     <br>
-    <div>
-    <canvas id="the-game" width="320" height="240"></canvas>
-    </div>
+
     <script type="text/javascript" src="resources.js"></script>
     <script type="text/javascript" src="input.js"></script>
     <script type="text/javascript" src="sprite.js"></script>
